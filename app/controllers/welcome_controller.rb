@@ -4,7 +4,7 @@ require 'open-uri'
 require 'rubygems'
 require 'mongo'
 
-#include Mongo
+include Mongo
 
 
 def index
@@ -14,10 +14,12 @@ var = 0
 
 quotes="'"
 
-db = Mongo::MongoClient.new("localhost", "27017").db("Movie")
+#db = Mongo::MongoClient.new("localhost", "27017").db("Movie")
+db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
+puts '-------------------------------------------------------------------------------------------------------------------------'
 
-@coll = db.collection("movies")
-@coll.remove()
+#@coll = db.collection("movies")
+#@coll.remove()
 
 while i < num  do
 
@@ -26,8 +28,10 @@ while i < num  do
       # iterate through the Array of returned artists and print their names                                                                                 
         data["similarartists"]["artist"].each do |artist|
 	      #puts "#{testvar}"
-    	  insertintable = @coll.insert({ID: var.to_s, Title: artist["name"]})
-      	   #  puts artist["name"];
+    	  #insertintable = @coll.insert({ID: var.to_s, Title: artist["name"]})
+      	  insertintable = db[:heroku_qksst9vt].insert_one({ID: var.to_s, Title: artist["name"]})
+         
+            #0  puts artist["name"];
     	  var = var + 1;
     	end
 
@@ -37,10 +41,11 @@ end
 
 
 end
-#helper_method :datasend
+
+helper_method :datasend
 def datasend
-	db = Mongo::MongoClient.new("localhost", "27017").db("Movie")
-	@coll = db.collection("movies")
+	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
+    @coll = db.collection("movies")
 
 	k=params[:Id]
     @rs2 = @coll.find({:ID => k}).to_json
