@@ -42,7 +42,7 @@ end
 
 end
 
-helper_method :datasend
+#helper_method :datasend
 def datasend
 	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
     @coll = db.collection("movies")
