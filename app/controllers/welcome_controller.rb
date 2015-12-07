@@ -18,8 +18,8 @@ quotes="'"
 db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
 puts '-------------------------------------------------------------------------------------------------------------------------'
 
-#@coll = db.collection("movies")
-#@coll.remove()
+@coll = db.collection("movies")
+@coll.remove()
 
 while i < 1 do
 
@@ -45,7 +45,7 @@ puts '--------------------------------------------------------------------------
 #helper_method :datasend
 #def datasend
 	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
-    @coll = db.heroku_vc7qfh9v("movies")
+    @coll = db.collection("movies")
 
 	k=params[:Id]
     @rs2 = @coll.find({:ID => k}).to_json
