@@ -4,7 +4,7 @@ require 'rubygems'
 require 'mongo'
 
 include Mongo
-class WelcomeController < ApplicationController
+#class WelcomeController < ApplicationController
 
 
 	def index
@@ -20,4 +20,4 @@ class WelcomeController < ApplicationController
 	rs2 = db[:heroku_vc7qfh9v].find({:ID => k}).to_json
 	render :json => rs2
 	end
-end
+#end
