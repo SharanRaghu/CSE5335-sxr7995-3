@@ -35,9 +35,9 @@ puts '--------------------------------------------------------------------------
 #end
 
 #helper_method :datasend
-#def datasend
-#	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
-#	k=params[:Id]
-#    rs2 = @coll.find({:ID => k}).to_json
-#    render :nothing => true, :json => rs2
-#end
+def datasend
+	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
+	k=params[:Id]
+	rs2 = db[:heroku_vc7qfh9v].find({:ID => k}).to_json
+	render :json => rs2
+end
