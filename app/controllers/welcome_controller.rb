@@ -10,7 +10,6 @@ include Mongo
 
 #def index
 i = 0
-num = 5
 var = 0
 
 quotes="'"
@@ -44,11 +43,11 @@ puts '--------------------------------------------------------------------------
 #end
 
 #helper_method :datasend
-#def datasend
+def datasend
 	db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
  #   @coll = db.collection("movies")
 
 	k=params[:Id]
     rs2 = @coll.find({:ID => k}).to_json
     render :nothing => true, :json => rs2
-#end
+end
