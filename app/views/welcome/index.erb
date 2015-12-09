@@ -1,48 +1,30 @@
 <html>
     <head>
-        <title> Data Display </title>
+        <title> Data </title>
         
+        <!--
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        -->
+
         <script type='text/javascript'>
-       
-        var i = 1;
-        var r = 1;
-            
-            function getData(){
+        function getData(){
                 if(i < 100){
-                    $.get( "/item/"+i, function( data ) {
+                    $.get( "/item/"+i, function(data) {
                     console.log(data);
                     i++;
                     markers = JSON.stringify(data);
                     $('#div1').append("<div>"+markers+"</div>");
                     console.log(i);
                     if (i > 20){
-                        $("#div1").find('div:first').remove();});
+                        $("#div1".find('div:first').remove();});
                     }
                 });
-            }
+        }
              
-            /*xmlhttp.onreadystatechange=function()
-                {
-                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                    {
-                        
-                        var json = eval(xmlhttp.responseText);
-                        document.getElementById("div"+r).innerHTML=json[0]["Title"];
-                        $("#div"+r).animate({fontSize: '3em'}, "fast");
-                        $("#div"+r).animate({fontSize: '1em'}, "slow");
-                    }
-                }
-
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-            i++;
-            r = (i % 20)+1;*/
-            
-      
-    </script>
+       </script>
     </head>
+    
     <body>
        <div id="div1"> </div>
         <script>
