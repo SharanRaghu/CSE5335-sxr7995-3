@@ -3,18 +3,11 @@
         <title> Data Display </title>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
-       
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type='text/javascript'>
        
         var i = 1;
         var r = 1;
-        function getData(){
-            if(i < 100){
-
-            var xmlhttp = new XMLHttpRequest();
-            var url = "https://cse-sxr7995-3.herokuapp.com/welcome/datasend?Id="+i;
-            var myArr;
             
             function getData(){
                 if(i < 100){
@@ -46,8 +39,6 @@
             xmlhttp.send();
             i++;
             r = (i % 20)+1;*/
-        }
-        }
             
       
     </script>
