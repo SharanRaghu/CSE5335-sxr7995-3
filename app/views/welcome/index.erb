@@ -16,8 +16,21 @@
             var url = "https://cse-sxr7995-3.herokuapp.com/welcome/datasend?Id="+i;
             var myArr;
             
-                        
-                xmlhttp.onreadystatechange=function()
+            function getData(){
+                if(i < 100){
+                    $.get( "/item/"+i, function( data ) {
+                    console.log(data);
+                    i++;
+                    markers = JSON.stringify(data);
+                    $('#div1').append("<div>"+markers+"</div>");
+                    console.log(i);
+                    if (i > 20){
+                        $("#div1").find('div:first').remove();});
+                    }
+                });
+            }
+             
+            /*xmlhttp.onreadystatechange=function()
                 {
                     if (xmlhttp.readyState==4 && xmlhttp.status==200)
                     {
@@ -32,7 +45,7 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
             i++;
-            r = (i % 20)+1;
+            r = (i % 20)+1;*/
         }
         }
             
@@ -45,4 +58,5 @@
             getData();
             var timeout= setInterval (getData, 500);    
         </script>
-    </body>
+        </body>
+</html>
