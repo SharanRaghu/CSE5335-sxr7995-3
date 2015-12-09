@@ -5,6 +5,8 @@ require 'mongo'
 
 include Mongo
 
+class WelcomeController < ApplicationController
+
 	def index
 	end
 
@@ -15,3 +17,4 @@ include Mongo
 	rs2 = db[:heroku_vc7qfh9v].find({:ID => k}).to_json
 	render :json => rs2
 	end
+end
