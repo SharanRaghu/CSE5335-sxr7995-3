@@ -5,7 +5,6 @@ require 'mongo'
 
 include Mongo
 
-def index
 	i = 0
 	var = 0
 
@@ -30,7 +29,6 @@ def index
 
 	end
 
-end
 
 #def datasend
 #db = Mongo::Client.new([ 'ds041924.mongolab.com:41924' ], :database => 'heroku_vc7qfh9v', :user => 'sharan', :password => 'sharan')
