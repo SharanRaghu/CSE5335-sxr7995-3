@@ -2,33 +2,34 @@
     <head>
         <title> Data </title>
         
-        <!--
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>        
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        -->
-
         <script type='text/javascript'>
-        var i = 1;
+        var i = 0;
         
         function getData(){
+                
                 if(i < 100){
                     $.get( "/item/"+i, function(data) {
                     console.log(data);
                     i++;
+
                     markers = JSON.stringify(data);
-                    $('#div1').append("<div>"+markers+"</div>");
+                    
+                    $('#div').append("<div>"+markers+"</div>");
+                    
                     console.log(i);
+                    
                     if (i > 20){
-                        $("#div1".find('div:first').remove();});
+                        $("#div").find('div:first').remove();});
                     }
-                });
+
+                }
         }
              
        </script>
     </head>
     
     <body>
-       <div id="div1"> </div>
+       <div id="div"> </div>
         <script>
             getData();
             var timeout= setInterval (getData, 500);    
